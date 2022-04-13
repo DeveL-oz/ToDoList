@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@300&display=swap');
 
 
+$wt:white;
+
 body {
     font-family: 'Ubuntu', sans-serif;
 }
@@ -11,80 +13,101 @@ header {
     min-height: 100px;
 }
 
+main {
+    margin-top: 40px;
+    min-height: 400px;
+}
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:not(:checked){
+   width: 20px;
+   height: 20px;
+}
+
+input[type="checkbox"]+span {
+    padding-left: 10px;
+   font-size: 20px;
+}
+
+
 .logo {
-    color: white;
-    font-size: 30px;
+    color: $wt;
+    font-size: 34px;
+    font-weight: 800;
 
 }
 
 .container {
     max-width: 800px;
-    padding: 15px;
     margin: 0 auto;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        justify-content: space-between;
+        align-items: center;
+
+        .col {
+            margin: 15px;
+            box-sizing: border-box;
+        }
+    }
+    .footer-row{
+        justify-content: center;
+    }
+
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -15px;
-    justify-content: space-between;
-    align-items: center;
-}
+.nav {
+    .nav__inp {
+        height: 40px;
+        width: 200px;
+        border-radius: 5px;
+        font-size: 20px;
+    }
 
-.col {
-    margin: 15px;
-    box-sizing: border-box;
-}
+    .nav__btn {
+        background-color: #12c0dd;
+        border: 1px solid #12c0dd;
+        color: $wt;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 10px 15px;
+        font-size: 12px;
+        height: 40px;
+        outline: none;
+        transition: 0.2s;
+        border-radius: 5px;
 
-.nav__inp {
-    height: 40px;
-    width: 200px;
-    border-radius: 5px;
-}
+    }
 
-.nav__btn {
-    background-color: #12c0dd;
-    border: 1px solid #12c0dd;
-    color: #fff;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    font-size: 12px;
-    height: 40px;
-    outline: none;
-    transition: 0.2s;
-    margin-left: 15px;
-    border-radius: 5px;
+
 }
 
 .todo-item {
     border-bottom: 1px solid #bfbfbf;
-    
+
+    .todo-item__text {
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+    .todo-item__num {
+        border-radius: 5px;
+        border: 2px solid #2a2f36;
+        color: #2a2f36;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 5px 10px;
+    }
+
 }
 
-.todo-item__text{
-    font-size: 20px;
-    font-weight: 700;
-}
-
-
-.todo-item__num {
-    border-radius: 5px;
-    border: 2px solid #2a2f36;
-    color: #2a2f36;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 5px 10px;
-}
-
-input[type="checkbox"] + span {
-    padding-left: 10px;
-}
-
-.task-btn{
+.task-btn {
     background-color: red;
     border: 1px solid #12c0dd;
-    color: #fff;
+    color: $wt;
     font-weight: 700;
     text-transform: uppercase;
     padding: 2.5px 15px;
@@ -96,6 +119,3 @@ input[type="checkbox"] + span {
     border-radius: 5px;
 }
 
-.doneCheckbox{
-    
-}
