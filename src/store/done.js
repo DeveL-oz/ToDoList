@@ -8,8 +8,8 @@ export default {
 
   },
   mutations: {
-    addTask(state, task) {
-      state.doneTasks.push(task);
+    addTask(state, item) {
+      state.doneTasks.push(item);
     },
     removeTask(state, id) {
       state.doneTasks.splice(id, 1);
@@ -17,8 +17,8 @@ export default {
 
   },
   actions: {
-    add(store, task) {
-      store.commit('addTask', task);
+    add(store, item) {
+      store.commit('addTask', item);
     },
     remove(store, id) {
       store.commit('removeTask', id);

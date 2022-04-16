@@ -4,7 +4,7 @@ export default {
     tasks: [],
   },
   getters: {
-    tasks: (state) => state.tasks,
+    allTasks: (state) => state.tasks,
 
   },
   mutations: {

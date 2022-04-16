@@ -11,12 +11,12 @@
               v-model="task"
               type="text"
               class="nav__inp col"
-              @keypress.enter="addTask(task), (task = '')"
+              @keypress.enter="add"
             >
             <button
               class="nav__btn col"
               type="button"
-              @click="addTask(task), (task = '')"
+              @click="add"
             >
               Добавить
             </button>
@@ -35,6 +35,7 @@
           {{ todo.length }}
         </div>
       </div>
+      <div v-show="!firstTask" class="first-task">Добавьте первую свою задачу</div>
       <div
         v-for="(item, idx) in todo"
         :key="item"
@@ -43,7 +44,7 @@
         <div class="col">
           <input
             type="checkbox"
-            @change="removeTask(idx), addDone(item)"
+            @change="doneTask(item,idx)"
           >
           <span>{{ item }}</span>
         </div>
@@ -57,17 +58,17 @@
           </button>
         </div>
       </div>
-      <div v-show="doneTask.length > 0">
+      <div v-show="done.length > 0">
         <div class="row todo-item">
           <div class="col todo-item__text">
             Done
           </div>
           <div class="col todo-item__num">
-            {{ doneTask.length }}
+            {{ done.length }}
           </div>
         </div>
         <div
-          v-for="(item, idx) in doneTask"
+          v-for="(item, idx) in done"
           :key="item"
           class="row"
         >
@@ -75,7 +76,7 @@
             <input
               type="checkbox"
               checked
-              @change="removeDone(idx), addTask(item)"
+              @change="todoTask(item,idx)"
             >
             <span>{{ item }}</span>
           </div>
@@ -111,12 +112,27 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('todo', { todo: 'tasks' }),
-    ...mapGetters('done', { doneTask: 'done' }),
+    ...mapGetters('todo', { todo: 'allTasks' }),
+    ...mapGetters('done', { done: 'done' }),
+    firstTask() {
+      return this.todo.length > 0 || this.done.length > 0;
+    },
   },
   methods: {
     ...mapActions('todo', { addTask: 'add', removeTask: 'remove' }),
     ...mapActions('done', { addDone: 'add', removeDone: 'remove' }),
+    add() {
+      this.addTask(this.task);
+      this.task = '';
+    },
+    doneTask(item, idx) {
+      this.addDone(item);
+      this.removeTask(idx);
+    },
+    todoTask(item, idx) {
+      this.addTask(item);
+      this.removeDone(idx);
+    },
   },
 };
 </script>

@@ -6,17 +6,17 @@ $wt:white;
 
 body {
     font-family: 'Ubuntu', sans-serif;
+    header {
+        background-color: black;
+        min-height: 100px;
+    }
+    main {
+        margin-top: 40px;
+        min-height: 400px;
+    }
+    
 }
 
-header {
-    background-color: black;
-    min-height: 100px;
-}
-
-main {
-    margin-top: 40px;
-    min-height: 400px;
-}
 
 input[type="checkbox"]:checked,
 input[type="checkbox"]:not(:checked){
@@ -27,8 +27,8 @@ input[type="checkbox"]:not(:checked){
 input[type="checkbox"]+span {
     padding-left: 10px;
    font-size: 20px;
+   vertical-align: top;
 }
-
 
 .logo {
     color: $wt;
@@ -46,10 +46,10 @@ input[type="checkbox"]+span {
         flex-wrap: wrap;
         margin: 0 -15px;
         justify-content: space-between;
-        align-items: center;
+        align-items:center;
 
         .col {
-            margin: 15px;
+            margin: 10px;
             box-sizing: border-box;
         }
     }
@@ -91,6 +91,7 @@ input[type="checkbox"]+span {
     .todo-item__text {
         font-size: 26px;
         font-weight: 700;
+        margin-bottom: 10px;
     }
 
     .todo-item__num {
@@ -117,5 +118,11 @@ input[type="checkbox"]+span {
     transition: 0.2s;
     margin-left: 15px;
     border-radius: 5px;
+}
+
+.first-task{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 400;
 }
 
