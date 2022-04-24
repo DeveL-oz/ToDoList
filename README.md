@@ -2,6 +2,21 @@
 
 Планировщик задач
 
-## Демо-версия приложения
+## Demo
 
-- [ToDo](https://todo-list197.netlify.app/)
+- [Click](https://todo-list197.netlify.app/)
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run dev
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
